@@ -1,0 +1,97 @@
+x = 185;
+y = 245;
+var fonte;
+var fonte2;
+var fonte3;
+var fonte4;
+var wallpaper;
+var opcao = 1;
+var tela = 0;
+function setup() {
+  createCanvas(550, 450);
+  fill(10,300)
+  wallpaper = loadImage('fundo.jpg')
+  fonte = loadFont('cow.otf')
+  fonte2 = loadFont('Blackout.ttf')
+  fonte3 = loadFont('fonte3.ttf')
+  fonte4 = loadFont('fonte4.otf')
+}
+
+function draw() {
+  background(wallpaper);
+  if(tela==0)
+     Menu();
+  if(tela==1)
+    fase1()
+  if(tela==2)
+    ajuda()
+  if(tela==3)
+    creditos()
+}
+
+function Menu (){
+  fill('rgba(0,255,0, 0.25)')
+  rect(x, y, 180, 45)
+  textSize(35);
+  textFont(fonte)
+  fill(248,248,255)
+  text('MATH GAME', 160, 80)
+  text('JOGAR', 215, 280)
+  text('AJUDA', 215, 360)
+  text('CREDITOS', 190, 440)
+}
+
+function fase1(){
+  textSize(100);
+  textFont(fonte4)
+  fill(248,248,255)
+  text('FASE 1', 140, 80)
+  textSize(20);
+  textFont(fonte3)
+  fill(248,248,255)
+  text('EFETUE A SEGUINTE OPERAÇÃO:', 90, 140)
+  textSize(20);
+  textFont(fonte3)
+  fill(248,248,255)
+  text('28 + 37', 220, 160)
+  
+}
+
+function ajuda(){
+  textSize(35);
+  textFont(fonte)
+  fill(248,248,255)
+}
+
+function creditos(){
+  textSize(80);
+  textFont(fonte2)
+  fill(248,248,255)
+  text('CREDITOS', 110, 80)
+  textSize(15);
+  textFont(fonte3)
+  fill(248,248,255)
+  text('DISCENTE: Vanessa G. L. S. Medeiros', 110, 140)
+  textSize(15);
+  textFont(fonte3)
+  fill(248,248,255)
+  text('DOCENTE: Aquiles Burlamaqui', 110, 160)
+  
+}
+
+function keyPressed(){
+  if(key=="ArrowUp" && y>280){
+   y = y - 80
+    opcao = opcao - 1;
+  }
+  if(key=="ArrowDown" && y<400){
+   y = y + 80
+    opcao = opcao + 1
+  }
+  if(key=="Enter"){
+    tela = opcao
+  }
+  if(key=="Escape"){
+    tela = 0
+  }
+}
